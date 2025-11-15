@@ -1,5 +1,5 @@
-from crud import animacao, interacaoBanco
-import _sqlite3
+from crud import animacao, interacaoBanco, listarTabela
+import sqlite3
 
 def menu():
     #bloco 01
@@ -20,8 +20,10 @@ def menu():
         idade = int(input("Informe sua idade: "))
 
         #Bloco 05
-        conexao = _sqlite3.connect("Abobrinha.sqlite")
+        conexao = sqlite3.connect("Abobrinha.sqlite")
         cursor = conexao.cursor()
+
+        listarTabela(nome, sobrenome, cursor, conexao)
 
         interacaoBanco(nome, sobrenome, cursor, conexao)
 

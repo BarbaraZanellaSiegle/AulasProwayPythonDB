@@ -6,22 +6,21 @@ def animacao():
         print("*")
 
 
+def listarTabela(nome, sobrenome, cursor, conexao):
+    comando = "SELECT name FROM sqlite_master where type='table';"
+    cursor.execute(comando)
+
+    tabelas = cursor.fetchall()
+
+    if tabelas:
+        for tabela in tabelas:
+            print("Tabela", tabela[0])
+    else:
+        print("Nenhuma Tabela encontrada no banco atual")
+
+
 def interacaoBanco(nome, sobrenome, cursor, conexao):
     repeticao = True
-
-
-comando = "SELECT name FROM sqlite_master where type'table';"
-
-        cursor.execute(comando)
-
-        tabelas = cursor.fetchall()
-
-        if tabelas:
-            for tabela in tabelas:
-                print("Tabela", tabela[0])
-            else:
-                print("Nenhuma Tabela encontrada no banco atual")
-
 
     while repeticao != False:
 
@@ -33,20 +32,52 @@ comando = "SELECT name FROM sqlite_master where type'table';"
         elif novaTabela == 1:
             repeticao = True
 
+            #INICIO
             nomeTabela = input(f"{nome}{sobrenome}, informe o nome da tabela que desejas criar:> ")
+            #Lista onde as colunas serão guardadas
+            colunas = []
+            # Como seu exemplo tinha 2 colunas, vamos pedir exatamente2
+            for i in range(1, 3):
+                print(f"\n--- Coluna {i} ---")
+                nomeColuna = input(f"{nome}, informe o nome da coluna {i}: ")
 
+                print("\n INTEGER\n TEXT\n REAL\n NUMERIC\n")
+                tipoColuna = input(f"{nome}, informe o tipo da coluna {i}: ")
+
+                print("\n NOT NULL \nNULL")
+                colunaVazio = input(f"{nome}, informe se a coluna pode ser nula ou não: ")
+
+                # Monta a coluna
+                colunas.append(f"{nomeColuna} {tipoColuna} {colunaVazio}")
+
+            # Junta tudo no comando SQL
             comandoCriaTabela = f'''
             CREATE TABLE IF NOT EXISTS {nomeTabela} (
-                id INTEGER,
-                nome TEXT NOT NULL
+                {', '.join(colunas)}
             )
             '''
 
             cursor.execute(comandoCriaTabela)
-
             conexao.commit()
-
             desejaDeletar = True
+            #FIM
+
+
+            #ANTES
+            # nomeTabela = input(f"{nome}{sobrenome}, informe o nome da tabela que desejas criar:> ")
+
+            # comandoCriaTabela = f'''
+            # CREATE TABLE IF NOT EXISTS {nomeTabela} (
+            #     id INTEGER,
+            #     nome TEXT NOT NULL
+            # )
+            # '''
+
+            # cursor.execute(comandoCriaTabela)
+            # conexao.commit()
+            # desejaDeletar = True
+
+
 
             while desejaDeletar != False:
 

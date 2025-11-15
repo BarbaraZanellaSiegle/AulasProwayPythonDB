@@ -1,0 +1,6 @@
+Abrir o terminal dentro da pasta repositório (clonada) 
+git status (para saber todas as alterações do meu repositório)
+git add . (Git adicione tudo que foi alterada na pasta raiz)
+git add nome arquivo (Git adicione o "arquivo" que foi alterada na pasta raiz)
+git commit -m (Git eu "Barbara" estou subindo determinadas ações)
+git push (Eu estou mandando com plena certeza tudo que foi alterado)
