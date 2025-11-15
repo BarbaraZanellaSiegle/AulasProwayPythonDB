@@ -1,0 +1,19 @@
+com base no conhecimento adquirido nos iremos aplicar alguns codigos que ja fizemos em python e oque aprendemos fazer hoje.
+
+import o modulo sleep como fizemos na aula passada, e crie uma animacao com um for para aparecer 20 asteriscos simulando algo a carregar
+
+ao final imprima um cabecalho escrito Seja bem vindo a Aula de Python com banco de dados
+solicite o nome do usuario seu sobre nome e sua idade
+
+crie uma conexao com o banco sqlite, passe um valor fixo para o nome do Banco, o nome devera Ser Abobrinha
+
+apos criar a conexao crie a instacia do cursor
+
+pergunte ao usuario  se ele deseja criar uma nova tabela, se sim pergunte qual o nome da tabela a pergunta para o usuario deve ser 
+EX: Andre voce deseja criar uma nova tabela?
+
+execute o script sql alterando apenas o nome da tabela, nao se preocupe com as colunas
+
+dentro desta mesma condicao pergunte se ele deseja deletar a tabela, se sim crie um sql para deletar a tabela
+
+pergunte se ele deseja continuar ou sair do sistema

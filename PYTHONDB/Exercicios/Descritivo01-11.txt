@@ -1,0 +1,4 @@
+com base na nova reestruturacao de codigo que fizemos 
+em cima da atividade da aula anterior, e da refatoracao de codigo para funcao
+incorpore o codigo de listar tabelas no lugar que voce julga ser o local correto para o funcionamento 
+deste codigo
