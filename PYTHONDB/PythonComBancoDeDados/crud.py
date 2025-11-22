@@ -29,6 +29,49 @@ def interacaoBanco(nome, sobrenome, cursor, conexao):
         if novaTabela == 2:     
             repeticao = False
 
+            novosDados = int(input(f"{nome}{sobrenome}, deseja inserir ou deletar dados na tabela Produtos?\n(Digite 1 para Sim e 2 para Não)"))
+
+            desejaInserirDeletar = True
+
+            while desejaInserirDeletar != False:
+
+                if novosDados == 2:
+                    desejaInserirDeletar = False
+
+                elif novosDados == 1:
+                    insereDeleta = int(input(f"{nome}{sobrenome}, deseja inserir ou deletar dados os dados da tabela produtos?\n(Digite 1 para Inserir e 2 para Deletar)"))
+
+
+                    comando_DDL = '''CREATE TABLE IF NOT EXISTS produtos(
+                        id INTEGER PRIMARY KEY AUTOINCREMENT,
+                        nome TEXT NOT NULL,
+                        preco REAL
+                        )'''
+
+                    cursor.execute(comando_DDL)
+                    if insereDeleta == 1:
+                        
+
+                        comando_DML_Insert = """
+                            INSERT INTO produtos(nome, preco) VALUES
+                                ('camiseta', 49.90),
+                                ('calça', 120.00)
+                            """
+                        cursor.execute(comando_DML_Insert)
+                    
+                    elif insereDeleta == 2:
+                        comando_DML_Delete = """
+                            DELETE FROM produtos
+                            WHERE preco = 49.90
+                            """
+                        cursor.execute(comando_DML_Delete)
+                                  
+                else:
+                    print(f"O numero {insereDeleta} que você digitou não faz parte das opções fornecidas")
+                    desejaDeletar = True
+
+
+
         elif novaTabela == 1:
             repeticao = True
 

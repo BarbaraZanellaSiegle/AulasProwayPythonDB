@@ -1,0 +1,6 @@
+Manipulação de Estruturas
+
+Sigla                                   O que faz?                      Exemplos
+DDL Data Definition Leanguage    Define Estrutura de Banco de Dados      (Create, Alter, Drop)
+
+DML Data Manipulation Leanguage  Manipula Dados                          Inserte, Update, Delete

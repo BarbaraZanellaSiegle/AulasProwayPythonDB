@@ -1,3 +1,4 @@
+#Chamada de função
 import sqlite3
 
 #1 passo Interacao com usuário
